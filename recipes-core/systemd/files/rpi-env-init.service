@@ -1,0 +1,11 @@
+[Unit]
+Description=Initial RPI Board ENV
+After=multi-user.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=-/sbin/rpi_env_init.sh
+
+[Install]
+WantedBy=multi-user.target
