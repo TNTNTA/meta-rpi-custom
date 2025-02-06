@@ -10,14 +10,8 @@ S = "${WORKDIR}"
 
 inherit autotools
 
-do_configure() {
-    # No need to manually run ./configure; Yocto will do it automatically
-    # Just ensure you pass the correct prefix
-    ./configure --prefix=${D}${bindir}
-}
-
-do_compile() {
-    oe_runmake
+do_configure::prepend() {
+    autoreconf -vi
 }
 
 do_install() {

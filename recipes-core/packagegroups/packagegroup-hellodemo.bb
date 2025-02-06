@@ -8,6 +8,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 RDEPENDS:${PN} = "\
-    hello_makefile \
-    hello_cmake \
+    makefile-demo \
+    autotools-demo \
+    cmake-demo \
 "
