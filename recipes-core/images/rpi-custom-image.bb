@@ -13,6 +13,5 @@ IMAGE_INSTALL +=" openssh-sftp-server \
 		sudo \
 		rpi-gpio \
 		raspi-gpio \
-		packagegroup-hellodemo \
-		rpi-env-init \
+		packagegroup-appdemo \
 "
