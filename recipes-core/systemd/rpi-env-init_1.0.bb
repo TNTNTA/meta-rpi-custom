@@ -14,12 +14,10 @@ SYSTEMD_SERVICE_${PN} = "rpi-env-init.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
 do_install() {
-    if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
-        install -d ${D}${systemd_unitdir}/system
-        install -m 0644 ${WORKDIR}/rpi-env-init.service ${D}${systemd_unitdir}/system
-        install -d ${D}${base_sbindir}
-        install -m 0755 ${WORKDIR}/rpi_env_init.sh ${D}${base_sbindir}
-    fi
+    install -d ${D}${systemd_unitdir}/system
+    install -m 0644 ${WORKDIR}/rpi-env-init.service ${D}${systemd_unitdir}/system
+    install -d ${D}${base_sbindir}
+    install -m 0755 ${WORKDIR}/rpi_env_init.sh ${D}${base_sbindir}
 }
 
 FILES:${PN} = " \

@@ -1,5 +1,5 @@
 [Unit]
-Description=Initial RPI Board ENV
+Description=Initial RPI Custom Board ENV
 After=multi-user.target
 
 [Service]
