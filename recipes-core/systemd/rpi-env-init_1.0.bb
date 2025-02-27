@@ -13,14 +13,24 @@ SYSTEMD_PACKAGES += "${PN}"
 SYSTEMD_SERVICE_${PN} = "rpi-env-init.service"
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
+# As this package is tied to systemd, only build it when we're also building systemd.
+inherit features_check
+REQUIRED_DISTRO_FEATURES = "systemd"
+
 do_install() {
-    install -d ${D}${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/rpi-env-init.service ${D}${systemd_unitdir}/system
+    install -d ${D}${systemd_system_unitdir}
+    install -d ${D}${sysconfdir}/systemd/system/multi-user.target.wants/
+
+    install -m 0644 ${WORKDIR}/rpi-env-init.service ${D}${systemd_system_unitdir}/rpi-env-init.service
+	ln -sf ${systemd_system_unitdir}/rpi-env-init.service \
+		${D}${sysconfdir}/systemd/system/multi-user.target.wants/rpi-env-init.service
+
     install -d ${D}${base_sbindir}
     install -m 0755 ${WORKDIR}/rpi_env_init.sh ${D}${base_sbindir}
 }
 
 FILES:${PN} = " \
-    ${systemd_unitdir}/system/rpi-env-init.service \
+    ${sysconfdir} \
+    ${systemd_system_unitdir}/rpi-env-init.service \
     ${base_sbindir}/rpi_env_init.sh \
     "
