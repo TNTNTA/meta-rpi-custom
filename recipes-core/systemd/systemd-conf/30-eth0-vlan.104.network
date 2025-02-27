@@ -1,0 +1,6 @@
+[Match]
+Name=eth0.104
+
+[Network]
+Address=120.104.10.20/24
+Gateway=120.104.10.1

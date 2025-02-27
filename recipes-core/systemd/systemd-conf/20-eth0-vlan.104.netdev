@@ -1,0 +1,6 @@
+[NetDev]
+Name=eth0.104
+Kind=vlan
+
+[VLAN]
+Id=104

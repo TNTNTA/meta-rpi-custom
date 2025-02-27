@@ -1,0 +1,9 @@
+[Match]
+Name=eth0
+
+[Network]
+Address=192.168.31.200/24
+Gateway=192.168.31.1
+DNS=8.8.8.8
+
+VLAN=eth0.104
