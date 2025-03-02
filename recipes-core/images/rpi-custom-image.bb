@@ -14,5 +14,7 @@ IMAGE_INSTALL +=" openssh-sftp-server \
 		rpi-gpio \
 		raspi-gpio \
 		packagegroup-appdemo \
+		packagegroup-customtools \
+		packagegroup-gstreamer \
 		rpi-env-init \
 "
