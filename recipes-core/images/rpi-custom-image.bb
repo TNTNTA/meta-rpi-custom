@@ -17,4 +17,5 @@ IMAGE_INSTALL +=" openssh-sftp-server \
 		packagegroup-customtools \
 		packagegroup-gstreamer \
 		rpi-env-init \
+		tzdata \
 "
