@@ -9,6 +9,9 @@ SDIMG_ROOTFS_TYPE="ext4.xz"
 
 IMAGE_FEATURES += "ssh-server-openssh"
 
+DISTRO_FEATURES:remove = "x11"
+DISTRO_FEATURES:append = "opengl"
+
 IMAGE_INSTALL +=" openssh-sftp-server \
 		sudo \
 		rpi-gpio \
@@ -16,6 +19,7 @@ IMAGE_INSTALL +=" openssh-sftp-server \
 		packagegroup-appdemo \
 		packagegroup-customtools \
 		packagegroup-gstreamer \
+		packagegroup-qt5 \
 		rpi-env-init \
 		tzdata \
 "
